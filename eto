@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 # SPDX-FileCopyrightText: 2026 Soya Yuzawa
 # SPDX-License-Identifier: BSD-3-Clause
+import argparse
 import sys
 
 ETO = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
+YOMI = ["ね", "うし", "とら", "う", "たつ", "み", "うま", "ひつじ", "さる", "とり", "いぬ", "い"]
+
+parser = argparse.ArgumentParser(description="西暦または生年月日から干支を出力するコマンド")
+parser.add_argument("-y", "--yomi", action="store_true", help="干支を読み仮名（ひらがな）で出力する")
+args = parser.parse_args()
 
 count = 0
 for line in sys.stdin:
@@ -21,7 +27,8 @@ for line in sys.stdin:
         print("1以上の西暦を入力してください", file=sys.stderr)
         sys.exit(1)
 
-    print(ETO[(year - 4) % 12])
+    idx = (year - 4) % 12
+    print(YOMI[idx] if args.yomi else ETO[idx])
     count += 1
 
 if count == 0:
