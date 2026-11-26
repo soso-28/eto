@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+import sys
+
+JUNISHI = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"]
+
+for line in sys.stdin:
+    s = line.strip()
+    if not s:
+        continue
+    year = int(s.split("-")[0])
+    print(JUNISHI[(year - 4) % 12])
