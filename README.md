@@ -1,4 +1,3 @@
-cat << 'EOF' > README.md
 # eto
 
 ![test](https://github.com/soso-28/eto/actions/workflows/test.yml/badge.svg)
@@ -56,7 +55,3 @@ $ seq 2024 2026 | ./eto
 
 * このソフトウェアパッケージは，3条項BSDライセンスの下，再頒布および使用が許可されます．
 * © 2026 Soya Yuzawa
-EOF
-git add README.md
-git commit -m "Update README.md"
-git push
